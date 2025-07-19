@@ -1,36 +1,33 @@
-/* Google Fonts kullanımı ve genel site ayarları */
+/* style.css */
+/* ---------- Genel Ayarlar ---------- */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    font-family: 'Poppins', sans-serif; /* Daha modern bir font */
-    background: linear-gradient(135deg, #f0f4f8, #e0e6ec); /* Hafif, modern arka plan */
-    overflow: hidden; /* Kalplerin dışarı çıkması durumunda kaydırma çubuğu çıkmasını engeller */
-    position: relative; /* Kalp arka planı için */
-    padding: 30px; /* Ekran kenarlarına boşluk bırak */
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f0f4f8, #e0e6ec);
+    overflow: hidden;
+    position: relative;
+    padding: 30px;
 }
 
-/* Kapsayıcı stilini güncelleme */
 .container {
     text-align: center;
-    background: none; /* Beyaz arka planı kaldırdık, şeffaf olacak */
-    padding: 50px; /* Daha geniş padding */
-    border-radius: 15px; /* Daha yuvarlak köşeler */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Daha belirgin ama soft gölge */
-    position: relative; /* İçindeki 'Evet' butonunun mutlak konumlanması için gerekli */
-    /* GENİŞLİK VE YÜKSEKLİK AYARLARI */
-    width: calc(100% - 100px); /* Ekranın %100'ü eksi 100px (sağdan soldan 50şer px boşluk) */
-    max-width: 900px; /* Maksimum 900px genişliğe kadar çıksın (daha büyük monitörler için) */
-    min-width: 400px; /* En az 400px olsun ki çok daralmasın */
-    min-height: 650px; /* Dikey hareket alanı için yüksekliği ciddi oranda artırdık */
-
-    display: flex; /* İçerideki öğeleri (h1, butonlar) dikeyde sıralamak için */
-    flex-direction: column; /* Dikey sıralama */
-    align-items: center; /* Yatayda ortalama */
-    justify-content: flex-start; /* Başlığı ve içeriği üstten hizala */
-    z-index: 1; /* Diğer arka plan öğelerinin üzerinde kalması için */
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: calc(100% - 100px);
+    max-width: 900px;
+    min-width: 400px;
+    min-height: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    z-index: 1;
 }
 
 h1 {
@@ -40,54 +37,49 @@ h1 {
     font-size: 2.2em;
     font-weight: 700;
     z-index: 10;
-    width: 100%; /* Başlığın kapsayıcı içinde ortalanması için */
+    width: 100%;
 }
 
-/* Buton stilleri */
+/* ---------- Butonlar ---------- */
 .button {
-    padding: 18px 35px; /* Daha büyük butonlar */
+    padding: 18px 35px;
     font-size: 1.3em;
-    font-weight: 600; /* Daha kalın buton yazısı */
+    font-weight: 600;
     cursor: pointer;
     border: none;
-    border-radius: 8px; /* Daha yuvarlak köşeler */
-    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; /* top/left geçişi yok, anlık zıplama */
+    border-radius: 8px;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    position: absolute;
+    transform: translate(-50%, -50%);
     z-index: 5;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Hafif buton gölgesi */
-
-    position: absolute; /* Mutlak konumlandırma */
-    transform: translate(-50%, -50%); /* Kendi merkezine göre ortala */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* BUTONLARIN BAŞLANGIÇ KONUMLARI (doğrudan container'a göre) */
 #yesButton {
-    background-color: #4CAF50; /* Yeşil */
+    background-color: #4CAF50;
     color: white;
-    top: 250px; /* Yeni min-height'a göre ayarlandı */
-    left: 35%; /* Başlangıç yatay konumu */
+    top: 250px;
+    left: 35%;
+}
+#yesButton:hover {
+    background-color: #45a049;
+    transform: translate(-50%, -50%) translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
 #noButton {
-    background-color: #f44336; /* Kırmızı */
+    background-color: #f44336;
     color: white;
-    top: 250px; /* Aynı dikey seviye */
-    left: 65%; /* Başlangıç yatay konumu */
+    top: 250px;
+    left: 65%;
 }
-
-/* Butonlara hover efektleri */
-#yesButton:hover {
-    background-color: #45a049;
-    transform: translate(-50%, -50%) translateY(-3px); /* Hafif yukarı kalkma efekti */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
 #noButton:hover {
     background-color: #e53935;
     transform: translate(-50%, -50%) translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
-/* Cevap mesajı için stil */
+/* ---------- Cevap Mesajı ---------- */
 .response-message {
     margin-top: 40px;
     font-size: 1.6em;
@@ -102,66 +94,14 @@ h1 {
     z-index: 10;
 }
 
-/* Hareket eden kalpler için CSS */
+/* ---------- Arka Plan (İslâm Bayrağı) ---------- */
 .heart-background {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Tıklamaların arkadaki içeriğe geçmesini sağlar */
-    overflow: hidden; /* Kalplerin dışarı taşmasını engeller */
-    z-index: 0; /* İçeriğin arkasında kalması için */
-}
-
-.heart {
-    position: absolute;
-    background-color: rgba(255, 99, 132, 0.6); /* Yarı şeffaf pembe kalp */
-    width: 25px; /* Kalp boyutu */
-    height: 25px;
-    transform: rotate(-45deg); /* Kalp şekli için döndürme */
-    animation: heart-fall linear infinite; /* Animasyonu uygula */
-    opacity: 0; /* Başlangıçta gizli */
+    pointer-events: none;
+    background: url('islamic_flag.png') center/cover no-repeat;
     z-index: 0;
-    filter: blur(1px); /* Hafif bulanıklık efekti */
-}
-
-/* Kalbin üst ve sağdaki yuvarlak parçaları */
-.heart::before,
-.heart::after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    background-color: rgba(255, 99, 132, 0.6);
-    border-radius: 50%;
-}
-
-.heart::before {
-    top: -12.5px; /* Kalbin üst yuvarlak kısmı */
-    left: 0;
-}
-
-.heart::after {
-    top: 0;
-    left: 12.5px; /* Kalbin sağ yuvarlak kısmı */
-}
-
-/* Kalp animasyonu (aşağıdan yukarıya hareket edip kaybolma) */
-@keyframes heart-fall {
-    0% {
-        transform: translateY(100vh) rotate(-45deg) scale(0.5); /* Ekranın altından başla, küçük boyutta */
-        opacity: 0;
-    }
-    20% {
-        opacity: 0.8;
-        transform: translateY(80vh) rotate(-45deg) scale(0.8);
-    }
-    80% {
-        opacity: 0.4;
-    }
-    100% {
-        transform: translateY(-20vh) rotate(-45deg) scale(1.2); /* Ekranın üstüne doğru ilerle, büyüyerek */
-        opacity: 0;
-    }
 }
